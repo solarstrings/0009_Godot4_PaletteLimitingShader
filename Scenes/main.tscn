@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgfvp544j1e0m"]
+
+[ext_resource type="Texture2D" uid="uid://cbbqlqm06r8ed" path="res://Assets/Mockup/GameMockup.png" id="1_3qfv5"]
+[ext_resource type="Script" path="res://Scenes/Main.cs" id="1_jyfu4"]
+[ext_resource type="Texture2D" uid="uid://cn77ylbmnma1u" path="res://Assets/Mockup/RGBColors.png" id="2_6p1qn"]
+[ext_resource type="PackedScene" uid="uid://d4ku2jgrshgwh" path="res://Assets/Shaders/palette_limiting_shader.tscn" id="3_mpu36"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_jyfu4")
+
+[node name="GameMockup" type="Sprite2D" parent="."]
+scale = Vector2(1.44, 1.36421)
+texture = ExtResource("1_3qfv5")
+centered = false
+
+[node name="RGBColors" type="Sprite2D" parent="."]
+texture = ExtResource("2_6p1qn")
+centered = false
+
+[node name="PaletteLimitingShader" parent="." instance=ExtResource("3_mpu36")]
+visible = false
+
+[node name="ApplyPaletteCheckBox" type="CheckBox" parent="."]
+visible = false
+offset_right = 24.0
+offset_bottom = 24.0
+text = "Apply Palette"
+
+[node name="HelpLabel" type="Label" parent="."]
+offset_top = 598.0
+offset_right = 509.0
+offset_bottom = 647.0
+text = "Drag and drop a .hex file on the game window to load the palette.
+You can find them on https://lospec.com/palette-list"
+
+[connection signal="toggled" from="ApplyPaletteCheckBox" to="." method="OnApplyPaletteCheckBoxToggled"]

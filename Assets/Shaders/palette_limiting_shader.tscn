@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4ku2jgrshgwh"]
+
+[ext_resource type="Shader" path="res://Assets/Shaders/PaletteLimiting.gdshader" id="1_s4rqc"]
+[ext_resource type="Texture2D" uid="uid://bltdx2gn01vrc" path="res://icon.svg" id="2_6v78d"]
+[ext_resource type="Script" path="res://Assets/Shaders/PaletteLimitingShader.cs" id="3_3h2ej"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a7kyf"]
+shader = ExtResource("1_s4rqc")
+shader_parameter/colors = PackedFloat32Array()
+shader_parameter/num_colors = 0
+
+[node name="PaletteLimitingShader" type="Sprite2D"]
+material = SubResource("ShaderMaterial_a7kyf")
+position = Vector2(-64, -48)
+scale = Vector2(10.25, 5.75)
+texture = ExtResource("2_6v78d")
+centered = false
+script = ExtResource("3_3h2ej")
